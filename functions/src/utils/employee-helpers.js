@@ -1,0 +1,40 @@
+const { customAlphabet } = require('nanoid');
+const {
+  admin,
+  auth,
+  usersCollection,
+  employeesCollection,
+} = require('../services/firebase-admin');
+
+exports.getRandomPassword = size =>
+  customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', size || 21)();
+
+exports.getUserByEmail = email => auth.getUserByEmail(email);
+exports.getUserById = uid => auth.getUser(uid);
+
+exports.updateLinkedUser = async (empId, linkedUserId) => {
+  try {
+    await employeesCollection.doc(empId).update({ linkedUser: linkedUserId });
+  } catch (ex) {
+    console.log('========= failed to update linked user =============');
+    console.log(ex.message);
+  }
+};
+
+exports.createInvitedUser = async email => {
+  try {
+    const payload = { email, password: this.getRandomPassword() };
+    const newUser = await auth.createUser(payload);
+    await usersCollection.doc(newUser.uid).set({
+      email: payload.email,
+      role: 'employee',
+      isInvited: true,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    });
+    return newUser;
+  } catch (ex) {
+    console.log('========= failed to create new user =============');
+    console.log(ex.message);
+    return null;
+  }
+};

@@ -1,0 +1,40 @@
+{
+  "login": {
+    "hello": "Hello",
+    "signin-to-account": "Sign in to your account",
+    "email": "Email",
+    "password": "Password",
+    "forgot-password": "Forgot your password?",
+    "signin-upper": "SIGN IN",
+    "signin-social": "Or Sign In using Social Media",
+    "no-account": "Don't have an account? Sign Up"
+  },
+  "signup": {
+    "hello": "Hello",
+    "create-account": "Create a new account",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm-password": "Confirm Password",
+    "agree-tnc": "I read and agree to Terms & Conditions",
+    "signup-upper": "SIGN UP",
+    "signup-social": "Or Register using Social Media",
+    "have-account": "Already have an account? Sign In"
+  },
+  "fp": {
+    "forgot-password": "Forgot Password",
+    "enter-email": "Please enter your email address",
+    "email": "Email",
+    "reset-password-upper": "RESET PASSWORD",
+    "back-to-login": "Go back to Login",
+    "get-link-upper": "GET RESET LINK"
+  },
+  "rp": {
+    "reset-password": "Reset Password",
+    "enter-password": "Please enter new password",
+    "reset-password-upper": "RESET PASSWORD",
+    "back-to-login": "Go back to Login",
+    "password": "Password"
+  }
+}
